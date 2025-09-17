@@ -1,14 +1,17 @@
 export default class SignInPage {
   get emailField() {
-    return cy.get('input[type="email"]');
+    return cy.get('[data-cy="email-field"]').should('be.visible');
   }
 
   get passwordField() {
-    return cy.get('input[type="password"]');
+    return cy.get('[data-cy="password-field"]').should('be.visible');
   }
 
   get signInBtn() {
-    return cy.get('button[type="submit"]');
+    return cy
+      .get('[data-cy="sign-in-btn"]')
+      .should('be.visible')
+      .and('be.enabled');
   }
 
   typeEmail(email) {
